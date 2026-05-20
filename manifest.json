@@ -1,1 +1,39 @@
-
+{
+  "name": "El Kybalión — Manual del Cambio Mental",
+  "short_name": "El Kybalión",
+  "description": "Las 7 Leyes Herméticas para transformar tu mente y tu realidad.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050202",
+  "theme_color": "#0a0505",
+  "orientation": "portrait-primary",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "lifestyle", "books"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Las 7 Leyes",
+      "url": "/#leyes",
+      "description": "Ver los 7 Principios Herméticos"
+    },
+    {
+      "name": "Reflexión",
+      "url": "/#reflexion",
+      "description": "Reflexión guiada diaria"
+    }
+  ]
+}
