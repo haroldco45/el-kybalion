@@ -1,1 +1,1577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>El Kybalión — Manual del Cambio Mental</title>
+  <meta name="description" content="Las 7 Leyes Herméticas del Kybalión. Un manual interactivo para la transformación de tu mente y tu realidad."/>
+  <meta name="theme-color" content="#0a0505"/>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="apple-touch-icon" href="icons/icon-192.png"/>
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="El Kybalión — Manual del Cambio Mental"/>
+  <meta property="og:description" content="Las 7 Leyes Herméticas para transformar tu mente y tu realidad."/>
+  <meta property="og:image" content="icons/icon-512.png"/>
+  <meta property="og:url" content="https://kybalion.vibras.app"/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --gold-dark: #8b6914;
+      --crimson: #8b1a1a;
+      --black: #050202;
+      --black-mid: #0f0808;
+      --black-light: #1a1010;
+      --parchment: #f5ead8;
+      --parchment-dark: #d4c4a0;
+      --text-body: #e8d8b8;
+      --text-muted: #a89060;
+      --glow: 0 0 30px rgba(201,168,76,0.3);
+      --glow-strong: 0 0 60px rgba(201,168,76,0.5);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text-body);
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===== STARS BACKGROUND ===== */
+    .stars-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .stars-bg::before, .stars-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(201,168,76,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 70%, rgba(201,168,76,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 50% 10%, rgba(201,168,76,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 50%, rgba(201,168,76,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 80%, rgba(201,168,76,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 90%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 45% 35%, rgba(255,255,255,0.2) 0%, transparent 100%),
+        radial-gradient(2px 2px at 80% 15%, rgba(201,168,76,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 55%, rgba(255,255,255,0.15) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 88%, rgba(201,168,76,0.3) 0%, transparent 100%);
+    }
+    .stars-bg::after {
+      background-image:
+        radial-gradient(1px 1px at 5% 45%, rgba(201,168,76,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 35% 12%, rgba(255,255,255,0.25) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 65% 65%, rgba(201,168,76,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 35%, rgba(255,255,255,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 78%, rgba(201,168,76,0.35) 0%, transparent 100%),
+        radial-gradient(1px 1px at 20% 25%, rgba(255,255,255,0.15) 0%, transparent 100%),
+        radial-gradient(2px 2px at 75% 92%, rgba(201,168,76,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 40% 60%, rgba(255,255,255,0.1) 0%, transparent 100%);
+      animation: twinkle 8s ease-in-out infinite alternate;
+    }
+    @keyframes twinkle {
+      0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.4; }
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: linear-gradient(to bottom, rgba(5,2,2,0.98), rgba(5,2,2,0.8));
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .nav-menu-btn {
+      background: none;
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold);
+      width: 38px; height: 38px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: all 0.3s;
+    }
+    .nav-menu-btn span {
+      display: block;
+      width: 20px; height: 1px;
+      background: var(--gold);
+      transition: all 0.3s;
+    }
+    .nav-menu-btn:hover { background: rgba(201,168,76,0.1); }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      position: fixed;
+      top: 0; right: -320px;
+      width: 300px; height: 100%;
+      background: linear-gradient(180deg, #0d0808 0%, #060404 100%);
+      border-left: 1px solid rgba(201,168,76,0.2);
+      z-index: 200;
+      transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      overflow-y: auto;
+      padding: 80px 0 40px;
+    }
+    .sidebar.open { right: 0; }
+    .sidebar-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 150;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s;
+    }
+    .sidebar-overlay.open { opacity: 1; pointer-events: all; }
+    .sidebar h3 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      padding: 0 28px 16px;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      margin-bottom: 8px;
+    }
+    .sidebar a {
+      display: block;
+      padding: 12px 28px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      letter-spacing: 1px;
+      transition: all 0.2s;
+      border-left: 2px solid transparent;
+    }
+    .sidebar a:hover {
+      color: var(--gold-light);
+      border-left-color: var(--gold);
+      background: rgba(201,168,76,0.05);
+    }
+    .sidebar .law-num {
+      display: inline-block;
+      width: 20px;
+      color: var(--gold-dark);
+      font-size: 10px;
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      position: relative;
+      z-index: 1;
+      padding-top: 60px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-mandala {
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.08);
+      animation: rotateMandala 60s linear infinite;
+      pointer-events: none;
+    }
+    .hero-mandala::before, .hero-mandala::after {
+      content: '';
+      position: absolute;
+      inset: 20px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.06);
+    }
+    .hero-mandala::after { inset: 60px; border-color: rgba(201,168,76,0.04); }
+    .hero-mandala-2 {
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.04);
+      animation: rotateMandala 90s linear infinite reverse;
+      pointer-events: none;
+    }
+    @keyframes rotateMandala { to { transform: rotate(360deg); } }
+
+    .hero-eye {
+      width: 80px; height: 80px;
+      margin-bottom: 32px;
+      animation: floatEye 6s ease-in-out infinite;
+    }
+    @keyframes floatEye {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 6px;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+    .hero-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(36px, 8vw, 80px);
+      font-weight: 900;
+      color: var(--gold);
+      text-shadow: var(--glow-strong);
+      line-height: 1.1;
+      margin-bottom: 8px;
+      animation: fadeInUp 1s ease 0.4s both;
+    }
+    .hero-title span {
+      display: block;
+      font-size: 0.45em;
+      letter-spacing: 8px;
+      font-weight: 400;
+      color: var(--gold-light);
+      margin-top: 8px;
+    }
+    .hero-divider {
+      width: 120px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 28px auto;
+      animation: fadeInUp 1s ease 0.6s both;
+    }
+    .hero-quote {
+      font-style: italic;
+      font-size: clamp(15px, 3vw, 20px);
+      color: var(--parchment-dark);
+      max-width: 560px;
+      line-height: 1.8;
+      animation: fadeInUp 1s ease 0.8s both;
+    }
+    .hero-quote cite {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--gold-dark);
+      margin-top: 12px;
+      font-style: normal;
+    }
+    .hero-cta {
+      margin-top: 40px;
+      animation: fadeInUp 1s ease 1s both;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-primary {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--black);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    }
+    .btn-primary:hover {
+      box-shadow: var(--glow-strong);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 13px 32px;
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.4);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover {
+      background: rgba(201,168,76,0.1);
+      border-color: var(--gold);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 3px;
+      animation: fadeInUp 1s ease 1.5s both;
+    }
+    .scroll-arrow {
+      width: 20px; height: 28px;
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 10px;
+      position: relative;
+    }
+    .scroll-arrow::after {
+      content: '';
+      position: absolute;
+      top: 5px; left: 50%;
+      transform: translateX(-50%);
+      width: 3px; height: 8px;
+      background: var(--gold);
+      border-radius: 2px;
+      animation: scrollDown 2s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== INTRO SECTION ===== */
+    .section-intro {
+      padding: 80px 24px;
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .section-label {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 5px;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: '';
+      flex: 1;
+      max-width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dark));
+    }
+    .section-label::after { background: linear-gradient(90deg, var(--gold-dark), transparent); }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(24px, 5vw, 40px);
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+    .section-text {
+      font-size: clamp(16px, 2.5vw, 19px);
+      color: var(--text-body);
+      line-height: 1.9;
+      font-weight: 300;
+    }
+    .section-text + .section-text { margin-top: 16px; }
+
+    /* ===== PRINCIPLES OVERVIEW ===== */
+    .principles-overview {
+      padding: 40px 20px 80px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2px;
+      margin-top: 40px;
+    }
+    .principle-card-mini {
+      background: linear-gradient(135deg, rgba(201,168,76,0.04), rgba(201,168,76,0.01));
+      border: 1px solid rgba(201,168,76,0.12);
+      padding: 28px 24px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+    .principle-card-mini::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.06), transparent);
+      transition: left 0.6s;
+    }
+    .principle-card-mini:hover::before { left: 100%; }
+    .principle-card-mini:hover {
+      background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.02));
+      border-color: rgba(201,168,76,0.3);
+      transform: translateY(-2px);
+    }
+    .principle-card-mini .num {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 28px;
+      color: rgba(201,168,76,0.2);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .principle-card-mini .law-name {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .principle-card-mini .law-keyword {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* ===== LAW SECTIONS ===== */
+    .law-section {
+      padding: 80px 0;
+      position: relative;
+      border-top: 1px solid rgba(201,168,76,0.08);
+    }
+    .law-section:nth-child(even) {
+      background: linear-gradient(180deg, rgba(201,168,76,0.02), transparent);
+    }
+    .law-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .law-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .law-number-badge {
+      flex-shrink: 0;
+      width: 80px; height: 80px;
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .law-number-badge::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.1);
+    }
+    .law-number-badge .n {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 22px;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .law-number-badge .ley {
+      font-family: 'Cinzel', serif;
+      font-size: 7px;
+      letter-spacing: 2px;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+    }
+    .law-titles { flex: 1; min-width: 200px; }
+    .law-roman {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .law-name-big {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(22px, 5vw, 36px);
+      color: var(--gold-light);
+      line-height: 1.2;
+      text-shadow: var(--glow);
+    }
+    .law-tagline {
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .law-axiom {
+      background: linear-gradient(135deg, rgba(139,26,26,0.15), rgba(201,168,76,0.05));
+      border: 1px solid rgba(201,168,76,0.15);
+      border-left: 3px solid var(--gold);
+      padding: 24px 28px;
+      margin: 32px 0;
+      position: relative;
+    }
+    .law-axiom::before {
+      content: '"';
+      position: absolute;
+      top: -12px; left: 20px;
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 48px;
+      color: var(--gold);
+      opacity: 0.3;
+      line-height: 1;
+    }
+    .law-axiom p {
+      font-style: italic;
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--parchment);
+      line-height: 1.8;
+    }
+    .law-axiom cite {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--gold-dark);
+      margin-top: 12px;
+      font-style: normal;
+    }
+
+    .law-body { font-size: clamp(16px, 2.2vw, 18px); font-weight: 300; }
+    .law-body p { margin-bottom: 20px; color: var(--text-body); }
+    .law-body h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin: 32px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .apply-box {
+      background: linear-gradient(135deg, rgba(201,168,76,0.06), rgba(201,168,76,0.01));
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 2px;
+      padding: 28px;
+      margin: 32px 0;
+    }
+    .apply-box h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      border: none !important;
+    }
+    .apply-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .apply-list li {
+      padding-left: 20px;
+      position: relative;
+      color: var(--text-body);
+      font-size: clamp(15px, 2vw, 17px);
+    }
+    .apply-list li::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 8px;
+      top: 6px;
+    }
+
+    .mantra-box {
+      text-align: center;
+      padding: 40px 24px;
+      background: radial-gradient(ellipse at center, rgba(201,168,76,0.08), transparent 70%);
+      border: 1px solid rgba(201,168,76,0.15);
+      margin: 32px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .mantra-box::before, .mantra-box::after {
+      content: '✦';
+      position: absolute;
+      font-size: 60px;
+      color: rgba(201,168,76,0.05);
+    }
+    .mantra-box::before { top: -10px; left: 10px; }
+    .mantra-box::after { bottom: -10px; right: 10px; }
+    .mantra-label {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 5px;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .mantra-text {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(14px, 3vw, 20px);
+      color: var(--gold-light);
+      line-height: 1.6;
+    }
+
+    /* ===== REFLECTION TOOL ===== */
+    .reflection-section {
+      padding: 80px 24px;
+      background: linear-gradient(180deg, transparent, rgba(201,168,76,0.03), transparent);
+      border-top: 1px solid rgba(201,168,76,0.08);
+    }
+    .reflection-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .reflection-tool {
+      background: linear-gradient(135deg, rgba(201,168,76,0.04), rgba(139,26,26,0.05));
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 36px;
+      margin-top: 40px;
+    }
+    .reflection-question {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .law-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .law-btn {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--text-muted);
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 1px;
+      padding: 10px 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+    .law-btn:hover, .law-btn.active {
+      background: rgba(201,168,76,0.1);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .reflection-output {
+      min-height: 100px;
+      padding: 20px;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(201,168,76,0.1);
+      color: var(--text-body);
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.8;
+      display: none;
+    }
+    .reflection-output.visible { display: block; }
+    .get-reflection-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.05));
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.3);
+      cursor: pointer;
+      width: 100%;
+      margin-top: 16px;
+      transition: all 0.3s;
+    }
+    .get-reflection-btn:hover {
+      background: rgba(201,168,76,0.15);
+      box-shadow: var(--glow);
+    }
+
+    /* ===== AFFIRMATIONS ===== */
+    .affirmations-section {
+      padding: 80px 24px;
+      border-top: 1px solid rgba(201,168,76,0.08);
+    }
+    .affirmations-inner { max-width: 860px; margin: 0 auto; }
+    .affirmations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .affirmation-card {
+      border: 1px solid rgba(201,168,76,0.12);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .affirmation-card::before {
+      content: attr(data-law);
+      position: absolute;
+      top: 12px; right: 16px;
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 32px;
+      color: rgba(201,168,76,0.06);
+    }
+    .affirmation-card:hover {
+      border-color: rgba(201,168,76,0.25);
+      background: rgba(201,168,76,0.03);
+    }
+    .affirmation-law {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .affirmation-text {
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 60px 24px 40px;
+      text-align: center;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      position: relative;
+    }
+    footer .footer-symbol {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 28px;
+      color: rgba(201,168,76,0.3);
+      display: block;
+      margin-bottom: 20px;
+    }
+    footer .footer-text {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      line-height: 2;
+    }
+    footer .footer-dev {
+      margin-top: 24px;
+      font-family: 'Crimson Pro', serif;
+      font-size: 13px;
+      color: rgba(201,168,76,0.25);
+      border-top: 1px solid rgba(201,168,76,0.08);
+      padding-top: 20px;
+    }
+
+    /* ===== INSTALL BANNER ===== */
+    .install-banner {
+      position: fixed;
+      bottom: 20px; left: 20px; right: 20px;
+      background: linear-gradient(135deg, #1a0f00, #0d0808);
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 16px 20px;
+      display: none;
+      align-items: center;
+      gap: 16px;
+      z-index: 300;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.8), var(--glow);
+    }
+    .install-banner.show { display: flex; }
+    .install-banner p {
+      flex: 1;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--text-body);
+    }
+    .install-banner p span { color: var(--gold); }
+    .install-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      padding: 10px 20px;
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .dismiss-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 18px;
+      padding: 4px;
+    }
+
+    /* ===== PROGRESS BAR ===== */
+    .reading-progress {
+      position: fixed;
+      top: 60px; left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--crimson), var(--gold));
+      z-index: 99;
+      width: 0%;
+      transition: width 0.1s;
+      box-shadow: 0 0 8px rgba(201,168,76,0.6);
+    }
+
+    /* ===== BACK TO TOP ===== */
+    .back-top {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      width: 44px; height: 44px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 90;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s;
+      font-size: 18px;
+      text-decoration: none;
+    }
+    .back-top.visible { opacity: 1; transform: translateY(0); }
+    .back-top:hover { background: rgba(201,168,76,0.2); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .law-header { flex-direction: column; gap: 20px; }
+      .hero-mandala, .hero-mandala-2 { display: none; }
+      .install-banner { flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    /* ===== REVEAL ANIMATION ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<div class="stars-bg"></div>
+<div class="reading-progress" id="progress"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">El Kybalión</div>
+  <button class="nav-menu-btn" id="menuBtn" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- SIDEBAR -->
+<div class="sidebar-overlay" id="overlay"></div>
+<aside class="sidebar" id="sidebar">
+  <h3>Contenido</h3>
+  <a href="#inicio">◈ Inicio</a>
+  <a href="#intro">◈ Introducción</a>
+  <a href="#leyes">◈ Las 7 Leyes</a>
+  <a href="#ley1"><span class="law-num">I.</span> El Todo</a>
+  <a href="#ley2"><span class="law-num">II.</span> Correspondencia</a>
+  <a href="#ley3"><span class="law-num">III.</span> Vibración</a>
+  <a href="#ley4"><span class="law-num">IV.</span> Polaridad</a>
+  <a href="#ley5"><span class="law-num">V.</span> Ritmo</a>
+  <a href="#ley6"><span class="law-num">VI.</span> Causa y Efecto</a>
+  <a href="#ley7"><span class="law-num">VII.</span> Género</a>
+  <a href="#reflexion">◈ Reflexión</a>
+  <a href="#afirmaciones">◈ Afirmaciones</a>
+</aside>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-mandala"></div>
+    <div class="hero-mandala-2"></div>
+
+    <svg class="hero-eye" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="40" cy="40" rx="38" ry="38" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
+      <path d="M8 40 Q40 10 72 40 Q40 70 8 40Z" stroke="rgba(201,168,76,0.5)" stroke-width="1" fill="none"/>
+      <circle cx="40" cy="40" r="12" stroke="rgba(201,168,76,0.6)" stroke-width="1" fill="rgba(201,168,76,0.05)"/>
+      <circle cx="40" cy="40" r="5" fill="rgba(201,168,76,0.4)"/>
+      <line x1="40" y1="0" x2="40" y2="14" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+      <line x1="40" y1="66" x2="40" y2="80" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+      <line x1="0" y1="40" x2="14" y2="40" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+      <line x1="66" y1="40" x2="80" y2="40" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+    </svg>
+
+    <p class="hero-subtitle">Sabiduría Hermética • Tres Iniciados</p>
+    <h1 class="hero-title">
+      El Kybalión
+      <span>Manual del Cambio Mental</span>
+    </h1>
+    <div class="hero-divider"></div>
+    <blockquote class="hero-quote">
+      "Los labios de la sabiduría están cerrados, excepto para el oído del entendimiento."
+      <cite>— El Kybalión</cite>
+    </blockquote>
+    <div class="hero-cta">
+      <a href="#intro" class="btn-primary">Iniciar el Estudio</a>
+      <a href="#leyes" class="btn-outline">Las 7 Leyes</a>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-arrow"></div>
+      DESPLAZA
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section-intro reveal" id="intro">
+    <div class="section-label">El Origen</div>
+    <h2 class="section-title">¿Qué es El Kybalión?</h2>
+    <p class="section-text">
+      El Kybalión es un texto publicado en 1908 por "Tres Iniciados" que sintetiza las enseñanzas herméticas atribuidas a <strong style="color:var(--gold)">Hermes Trimegisto</strong> —"El Tres Veces Grande"— figura mítica que fusiona al dios egipcio Thoth con el griego Hermes.
+    </p>
+    <p class="section-text">
+      Sus siete principios describen las leyes fundamentales que gobiernan el Universo, la mente y la realidad. Comprenderlos no es un acto filosófico: es una herramienta práctica para <em>transformar conscientemente tu experiencia de vida</em>.
+    </p>
+    <p class="section-text">
+      Este manual te guiará a través de cada ley, su significado profundo, y cómo aplicarla para reprogramar tu mente, elevar tu vibración y crear la realidad que deseas.
+    </p>
+  </section>
+
+  <!-- PRINCIPLES OVERVIEW -->
+  <section class="principles-overview" id="leyes">
+    <div style="text-align:center" class="reveal">
+      <div class="section-label">Las Siete Leyes</div>
+      <h2 class="section-title">Los Principios del Universo</h2>
+    </div>
+    <div class="principles-grid reveal">
+      <a href="#ley1" class="principle-card-mini">
+        <span class="num">I</span>
+        <div class="law-name">Mentalismo</div>
+        <div class="law-keyword">El Todo es Mente</div>
+      </a>
+      <a href="#ley2" class="principle-card-mini">
+        <span class="num">II</span>
+        <div class="law-name">Correspondencia</div>
+        <div class="law-keyword">Como es arriba, es abajo</div>
+      </a>
+      <a href="#ley3" class="principle-card-mini">
+        <span class="num">III</span>
+        <div class="law-name">Vibración</div>
+        <div class="law-keyword">Todo se mueve, todo vibra</div>
+      </a>
+      <a href="#ley4" class="principle-card-mini">
+        <span class="num">IV</span>
+        <div class="law-name">Polaridad</div>
+        <div class="law-keyword">Todo tiene dos polos</div>
+      </a>
+      <a href="#ley5" class="principle-card-mini">
+        <span class="num">V</span>
+        <div class="law-name">Ritmo</div>
+        <div class="law-keyword">Todo fluye, todo refluye</div>
+      </a>
+      <a href="#ley6" class="principle-card-mini">
+        <span class="num">VI</span>
+        <div class="law-name">Causa y Efecto</div>
+        <div class="law-keyword">Toda causa tiene su efecto</div>
+      </a>
+      <a href="#ley7" class="principle-card-mini">
+        <span class="num">VII</span>
+        <div class="law-name">Género</div>
+        <div class="law-keyword">El género está en todo</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== LEY I: MENTALISMO ===== -->
+  <section class="law-section" id="ley1">
+    <div class="law-inner">
+      <div class="law-header reveal">
+        <div class="law-number-badge">
+          <span class="n">I</span>
+          <span class="ley">Ley</span>
+        </div>
+        <div class="law-titles">
+          <p class="law-roman">Primero · Hermes Trimegisto</p>
+          <h2 class="law-name-big">El Mentalismo</h2>
+          <p class="law-tagline">La realidad es una proyección de la mente</p>
+        </div>
+      </div>
+      <div class="law-axiom reveal">
+        <p>"El TODO es MENTE; el Universo es mental."</p>
+        <cite>— El Kybalión</cite>
+      </div>
+      <div class="law-body reveal">
+        <p>El principio del Mentalismo establece que el universo entero existe dentro de la Mente del Todo, y que todo lo que percibes como "realidad externa" es, en esencia, una manifestación mental. La materia, la energía, el tiempo y el espacio son todos estados de la mente universal.</p>
+        <p>Esto no significa que el mundo sea una ilusión en el sentido de que no existe, sino que su naturaleza más profunda es <strong style="color:var(--gold-light)">mental, no material</strong>. Comprender esto es la llave maestra del hermetismo.</p>
+        <h4>¿Qué Significa para Ti?</h4>
+        <p>Si el universo es mental, entonces <em>tu mente es el instrumento de creación</em>. Tus pensamientos dominantes, creencias y emociones moldean activamente tu experiencia de la realidad. No eres víctima del mundo exterior: eres su co-creador.</p>
+        <p>El alquimista mental comprende que cambiar su mundo interior —sus pensamientos, sus creencias limitantes, su diálogo interno— genera inevitablemente cambios en su mundo exterior.</p>
+        <div class="apply-box">
+          <h4>Aplicación Práctica · Cambio de Mentalidad</h4>
+          <ul class="apply-list">
+            <li>Observa tus pensamientos más frecuentes: son la semilla de tu realidad futura.</li>
+            <li>Identifica y cuestiona creencias limitantes como "no soy suficiente" o "el dinero es difícil".</li>
+            <li>Practica afirmaciones mentales conscientes durante 21 días consecutivos.</li>
+            <li>Antes de dormir, visualiza la realidad que deseas como si ya existiera.</li>
+            <li>Cuando surja un pensamiento negativo, di: "Este es un pensamiento, no la realidad."</li>
+          </ul>
+        </div>
+        <div class="mantra-box reveal">
+          <p class="mantra-label">Mantra de Activación</p>
+          <p class="mantra-text">"Mi mente es el templo donde nace mi realidad.<br>Elijo conscientemente los pensamientos que planto en ella."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEY II: CORRESPONDENCIA ===== -->
+  <section class="law-section" id="ley2">
+    <div class="law-inner">
+      <div class="law-header reveal">
+        <div class="law-number-badge">
+          <span class="n">II</span>
+          <span class="ley">Ley</span>
+        </div>
+        <div class="law-titles">
+          <p class="law-roman">Segundo · El Gran Espejo</p>
+          <h2 class="law-name-big">La Correspondencia</h2>
+          <p class="law-tagline">El macrocosmos se refleja en el microcosmos</p>
+        </div>
+      </div>
+      <div class="law-axiom reveal">
+        <p>"Como es arriba, es abajo; como es abajo, es arriba. Como es adentro, es afuera; como es afuera, es adentro."</p>
+        <cite>— El Kybalión</cite>
+      </div>
+      <div class="law-body reveal">
+        <p>El principio de Correspondencia es el gran espejo cósmico. Establece que hay una armonía perfecta entre los distintos planos de la existencia: el plano físico, el mental y el espiritual corresponden entre sí y se reflejan mutuamente.</p>
+        <p>Los mismos patrones que ves en las galaxias aparecen en los átomos. Los mismos ritmos que gobiernan las mareas gobiernan las emociones humanas. Lo que ocurre en tu vida interior se proyecta en tu vida exterior.</p>
+        <h4>El Espejo de Tu Vida</h4>
+        <p>Todo lo que te perturba del mundo exterior es un mapa de algo que existe en tu interior. Si hay caos afuera, hay caos adentro. Si hay abundancia afuera, hay abundancia adentro. La ley no distingue —simplemente refleja.</p>
+        <p>Esta ley te otorga un poder extraordinario: al <strong style="color:var(--gold-light)">transformar tu mundo interior</strong>, inevitablemente transforma tu mundo exterior. No necesitas luchar con las circunstancias; necesitas trabajar con tu propio ser.</p>
+        <div class="apply-box">
+          <h4>Aplicación Práctica · El Gran Espejo</h4>
+          <ul class="apply-list">
+            <li>Cuando algo te moleste del exterior, pregunta: "¿Qué refleja esto de mi interior?"</li>
+            <li>Ordena tu espacio físico: el orden externo genera orden mental.</li>
+            <li>Examina tus relaciones: las personas en tu vida reflejan aspectos tuyos.</li>
+            <li>Trabaja en tu mundo interior (meditación, journaling) para cambiar el exterior.</li>
+            <li>Identifica un patrón que se repita en distintas áreas de tu vida y trabaja su raíz.</li>
+          </ul>
+        </div>
+        <div class="mantra-box reveal">
+          <p class="mantra-label">Mantra de Activación</p>
+          <p class="mantra-text">"Mi mundo exterior es el espejo de mi mundo interior.<br>Transformo lo de adentro para transformar lo de afuera."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEY III: VIBRACIÓN ===== -->
+  <section class="law-section" id="ley3">
+    <div class="law-inner">
+      <div class="law-header reveal">
+        <div class="law-number-badge">
+          <span class="n">III</span>
+          <span class="ley">Ley</span>
+        </div>
+        <div class="law-titles">
+          <p class="law-roman">Tercero · La Frecuencia Universal</p>
+          <h2 class="law-name-big">La Vibración</h2>
+          <p class="law-tagline">Todo es energía en movimiento constante</p>
+        </div>
+      </div>
+      <div class="law-axiom reveal">
+        <p>"Nada descansa; todo se mueve; todo vibra."</p>
+        <cite>— El Kybalión</cite>
+      </div>
+      <div class="law-body reveal">
+        <p>La ciencia moderna confirma lo que Hermes enseñó hace milenios: todo en el universo está en un estado constante de vibración. La materia sólida, los pensamientos, las emociones, el sonido, la luz —todo vibra a distintas frecuencias.</p>
+        <p>La diferencia entre el plomo y el oro, entre la tristeza y la alegría, entre la pobreza y la abundancia, no es de naturaleza sino de <strong style="color:var(--gold-light)">frecuencia vibratoria</strong>. El iniciado aprende a elevar conscientemente su vibración.</p>
+        <h4>La Escala de la Conciencia</h4>
+        <p>Las emociones humanas vibran a diferentes frecuencias. Las emociones más densas —miedo, vergüenza, culpa— vibran bajo. Las más elevadas —amor, gratitud, paz— vibran alto. Tu frecuencia emocional dominante actúa como un imán que atrae hacia ti experiencias de la misma frecuencia.</p>
+        <p>El alquimista mental domina la Transmutación Mental: la capacidad de elevar deliberadamente su vibración mediante el pensamiento, la emoción y la acción conscientes.</p>
+        <div class="apply-box">
+          <h4>Aplicación Práctica · Elevar Tu Frecuencia</h4>
+          <ul class="apply-list">
+            <li>Practica la gratitud diaria: es una de las emociones de mayor vibración.</li>
+            <li>Selecciona conscientemente la música, conversaciones y contenido que consumes.</li>
+            <li>Cuida tu cuerpo: el ejercicio, la alimentación y el sueño afectan tu vibración.</li>
+            <li>Cuando sientas emociones bajas, no las reprimas: obsérvales y pregunta su mensaje.</li>
+            <li>La naturaleza, la música elevada y el servicio a otros elevan instantáneamente la vibración.</li>
+          </ul>
+        </div>
+        <div class="mantra-box reveal">
+          <p class="mantra-label">Mantra de Activación</p>
+          <p class="mantra-text">"Soy energía viva y elige conscientemente<br>la frecuencia en que vibro cada momento."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEY IV: POLARIDAD ===== -->
+  <section class="law-section" id="ley4">
+    <div class="law-inner">
+      <div class="law-header reveal">
+        <div class="law-number-badge">
+          <span class="n">IV</span>
+          <span class="ley">Ley</span>
+        </div>
+        <div class="law-titles">
+          <p class="law-roman">Cuarto · Los Dos Polos</p>
+          <h2 class="law-name-big">La Polaridad</h2>
+          <p class="law-tagline">Todo tiene su opuesto en la misma escala</p>
+        </div>
+      </div>
+      <div class="law-axiom reveal">
+        <p>"Todo es doble; todo tiene dos polos; todo tiene su par de opuestos; los semejantes y los antagónicos son lo mismo; los opuestos son idénticos en naturaleza, pero diferentes en grado."</p>
+        <cite>— El Kybalión</cite>
+      </div>
+      <div class="law-body reveal">
+        <p>El calor y el frío son la misma cosa —temperatura— en diferentes grados. La luz y la oscuridad son la misma cosa —luminosidad— en diferentes intensidades. El amor y el odio son la misma emoción en diferente polo. Los opuestos no son separados: son <strong style="color:var(--gold-light)">extremos de la misma escala continua</strong>.</p>
+        <p>Esta comprensión es liberadora: si el miedo y el coraje son la misma energía en diferente grado, puedes <em>transmutarla</em>. No se trata de eliminar el miedo sino de desplazarlo por la escala hacia el coraje.</p>
+        <h4>La Transmutación Mental</h4>
+        <p>El maestro hermético usa la Ley de Polaridad para transmutar estados mentales indeseados. No lucha contra el odio con más resistencia: lo transforma moviéndolo por la escala hacia el amor. No batalla contra el miedo: lo desplaza hacia la fe.</p>
+        <p>Toda virtud tiene su "defecto" en el mismo eje. La timidez transmutada se vuelve humildad auténtica. La agresividad transmutada se vuelve asertividad poderosa. Nada debe ser destruido, sino <strong style="color:var(--gold-light)">alquimizado</strong>.</p>
+        <div class="apply-box">
+          <h4>Aplicación Práctica · La Alquimia Mental</h4>
+          <ul class="apply-list">
+            <li>Cuando sientas una emoción "negativa", identifica su polo opuesto positivo.</li>
+            <li>Pregunta: "¿Cómo puedo moverme en esta escala hacia el polo que deseo?"</li>
+            <li>No juzgues lo "negativo" como malo —es información y energía disponible.</li>
+            <li>Usa la polaridad para relativizar: en toda situación difícil hay una oportunidad.</li>
+            <li>Practica ver "el otro lado" de cada persona, situación o problema.</li>
+          </ul>
+        </div>
+        <div class="mantra-box reveal">
+          <p class="mantra-label">Mantra de Activación</p>
+          <p class="mantra-text">"Tengo el poder de moverme por la escala.<br>Transmuto lo que no me sirve en lo que me eleva."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEY V: RITMO ===== -->
+  <section class="law-section" id="ley5">
+    <div class="law-inner">
+      <div class="law-header reveal">
+        <div class="law-number-badge">
+          <span class="n">V</span>
+          <span class="ley">Ley</span>
+        </div>
+        <div class="law-titles">
+          <p class="law-roman">Quinto · El Péndulo Cósmico</p>
+          <h2 class="law-name-big">El Ritmo</h2>
+          <p class="law-tagline">Todo fluye y refluye como las mareas</p>
+        </div>
+      </div>
+      <div class="law-axiom reveal">
+        <p>"Todo fluye hacia afuera y hacia adentro; todo tiene sus mareas; todas las cosas suben y bajan; el balanceo del péndulo se manifiesta en todo; la medida del movimiento hacia la derecha es la medida del movimiento hacia la izquierda; el ritmo es la compensación."</p>
+        <cite>— El Kybalión</cite>
+      </div>
+      <div class="law-body reveal">
+        <p>El universo opera en ritmos perfectos como un péndulo en balanceo constante. Las estaciones, las mareas, los ciclos económicos, las fases de la luna, los ciclos vitales —todo se mueve en ritmo. No hay estado permanente: todo lo que sube eventualmente baja, y viceversa.</p>
+        <p>El error humano es creer que los estados son permanentes. En la euforia, olvidamos que vendrá la calma. En la depresión, olvidamos que también pasará. La sabiduría hermética dice: <strong style="color:var(--gold-light)">aprovecha la subida y prepárate en la bajada</strong>.</p>
+        <h4>La Neutralización del Péndulo</h4>
+        <p>El maestro hermético aprende a "neutralizar" el péndulo: no permitir que las oscilaciones extremas lo arrastren. Esto no significa volverse indiferente, sino <em>mantener el centro de gravedad elevado</em> para que incluso los balanceos hacia abajo no lo lleven demasiado bajo.</p>
+        <p>Cuando estés en un punto alto —éxito, euforia, abundancia— no te desconectes. Trabaja, ahorra, consolida. Cuando estés en un punto bajo, no desespes: el ritmo indica que el péndulo volverá.</p>
+        <div class="apply-box">
+          <h4>Aplicación Práctica · Dominar el Péndulo</h4>
+          <ul class="apply-list">
+            <li>En épocas de abundancia, ahorra y consolida. En épocas difíciles, siembra.</li>
+            <li>Cuando sientas euforia extrema, mantén los pies en la tierra y actúa con prudencia.</li>
+            <li>Cuando sientas depresión, recuerda: el ritmo asegura que esto también pasará.</li>
+            <li>Desarrolla rutinas estables que no dependan de tu estado emocional.</li>
+            <li>Observa los ciclos en tu vida —el péndulo personal— para anticipar sus movimientos.</li>
+          </ul>
+        </div>
+        <div class="mantra-box reveal">
+          <p class="mantra-label">Mantra de Activación</p>
+          <p class="mantra-text">"Fluyo con el ritmo del universo.<br>En los altos, actúo. En los bajos, confío y persisto."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEY VI: CAUSA Y EFECTO ===== -->
+  <section class="law-section" id="ley6">
+    <div class="law-inner">
+      <div class="law-header reveal">
+        <div class="law-number-badge">
+          <span class="n">VI</span>
+          <span class="ley">Ley</span>
+        </div>
+        <div class="law-titles">
+          <p class="law-roman">Sexto · La Ley de la Siembra</p>
+          <h2 class="law-name-big">Causa y Efecto</h2>
+          <p class="law-tagline">Nada ocurre por azar; todo tiene su causa</p>
+        </div>
+      </div>
+      <div class="law-axiom reveal">
+        <p>"Toda causa tiene su efecto; todo efecto tiene su causa; todo ocurre de acuerdo a la Ley; la suerte no es más que el nombre dado a la Ley cuando no se reconoce."</p>
+        <cite>— El Kybalión</cite>
+      </div>
+      <div class="law-body reveal">
+        <p>El azar no existe. Lo que llamamos "suerte" es simplemente una cadena de causas que no hemos sabido rastrear. Cada pensamiento que piensas, cada acción que tomas, cada emoción que cultivas siembra una causa que producirá un efecto proporcional.</p>
+        <p>La mayoría de los seres humanos son <em>efectos</em> —son movidos por las circunstancias, por las opiniones ajenas, por fuerzas externas. El maestro hermético aspira a ser <strong style="color:var(--gold-light)">causa consciente</strong> de su vida, el iniciador de las cadenas causales que desea ver manifestadas.</p>
+        <h4>Ser Causa, No Efecto</h4>
+        <p>Pasar de efecto a causa requiere un cambio fundamental de postura: dejar de preguntar "¿qué me pasa?" y comenzar a preguntar "¿qué estoy causando?". La responsabilidad radical —sin culpa, con poder— es la puerta de entrada a la maestría de esta ley.</p>
+        <p>Cada vez que reaccionas impulsivamente, eres un efecto. Cada vez que respondes conscientemente, eres una causa. El espacio entre estímulo y respuesta es donde reside tu libertad y tu poder creador.</p>
+        <div class="apply-box">
+          <h4>Aplicación Práctica · Ser el Creador</h4>
+          <ul class="apply-list">
+            <li>Traza una situación actual en tu vida hacia sus causas: ¿qué sembraste para cosechar esto?</li>
+            <li>Practica la "pausa consciente" entre estímulo y respuesta en situaciones difíciles.</li>
+            <li>Define acciones específicas que causarán los efectos que deseas en 90 días.</li>
+            <li>Asume responsabilidad de tu vida sin caer en la culpa —solo en el poder.</li>
+            <li>Siembra hoy lo que quieres cosechar mañana: en pensamiento, emoción y acción.</li>
+          </ul>
+        </div>
+        <div class="mantra-box reveal">
+          <p class="mantra-label">Mantra de Activación</p>
+          <p class="mantra-text">"No soy víctima de las circunstancias.<br>Soy el arquitecto consciente de mis causas y mis efectos."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEY VII: GÉNERO ===== -->
+  <section class="law-section" id="ley7">
+    <div class="law-inner">
+      <div class="law-header reveal">
+        <div class="law-number-badge">
+          <span class="n">VII</span>
+          <span class="ley">Ley</span>
+        </div>
+        <div class="law-titles">
+          <p class="law-roman">Séptimo · La Unión Creadora</p>
+          <h2 class="law-name-big">El Género</h2>
+          <p class="law-tagline">La creación nace de la unión de lo masculino y lo femenino</p>
+        </div>
+      </div>
+      <div class="law-axiom reveal">
+        <p>"El Género está en todo; todo tiene sus principios Masculino y Femenino; el Género se manifiesta en todos los planos."</p>
+        <cite>— El Kybalión</cite>
+      </div>
+      <div class="law-body reveal">
+        <p>El Género Hermético nada tiene que ver con el sexo biológico. Es el principio creador universal: la danza entre dos fuerzas complementarias que, en su unión, generan toda creación. Se manifiesta en todos los planos de existencia.</p>
+        <p>El <strong style="color:var(--gold-light)">principio Masculino</strong> (Logos) es la fuerza activa: la voluntad, la intención, la proyección, la iniciativa, la acción dirigida. El <strong style="color:var(--gold-light)">principio Femenino</strong> (Mente Universal) es la fuerza receptiva: la imaginación, la intuición, la generación, la nutrición, la manifestación.</p>
+        <h4>Géneros en la Mente Humana</h4>
+        <p>Cada mente humana contiene ambos principios. El principio Masculino mental opera con la voluntad y la razón dirigida. El principio Femenino mental opera con la emoción, la intuición y la capacidad de recibir y gestar ideas hasta hacerlas realidad.</p>
+        <p>La creación consciente requiere ambos: la <em>intención clara</em> (masculino) que impregna la <em>imaginación fértil</em> (femenino), y esta última que gesta y da a luz la manifestación. La mayoría falla porque usa solo uno: o pura acción sin receptividad, o pura receptividad sin dirección.</p>
+        <div class="apply-box">
+          <h4>Aplicación Práctica · La Unión Creadora Interior</h4>
+          <ul class="apply-list">
+            <li>Define claramente tu intención (masculino): ¿qué deseas crear exactamente?</li>
+            <li>Visualiza con emoción y fe (femenino): permite que la imagen se geste en ti.</li>
+            <li>Alterna acción decidida con períodos de recepción e intuición.</li>
+            <li>No fuces los resultados: siembra con intención, nutre con emoción, cosecha con paciencia.</li>
+            <li>Honra tanto tu fuerza activa (disciplina, acción) como tu fuerza receptiva (intuición, descanso).</li>
+          </ul>
+        </div>
+        <div class="mantra-box reveal">
+          <p class="mantra-label">Mantra de Activación</p>
+          <p class="mantra-text">"Dirijo mi voluntad con claridad y nutro mis sueños con fe.<br>Soy creación consciente en perfecta unión interior."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REFLEXIÓN TOOL ===== -->
+  <section class="reflection-section" id="reflexion">
+    <div class="reflection-inner">
+      <div class="reveal" style="text-align:center">
+        <div class="section-label">Herramienta</div>
+        <h2 class="section-title">Reflexión Guiada</h2>
+        <p class="section-text">Selecciona una ley y recibe una pregunta de reflexión para aplicarla en tu vida hoy.</p>
+      </div>
+      <div class="reflection-tool reveal">
+        <p class="reflection-question">¿Sobre qué Ley Hermética deseas reflexionar hoy?</p>
+        <div class="law-selector" id="lawSelector">
+          <button class="law-btn" data-law="1">I · Mentalismo</button>
+          <button class="law-btn" data-law="2">II · Correspondencia</button>
+          <button class="law-btn" data-law="3">III · Vibración</button>
+          <button class="law-btn" data-law="4">IV · Polaridad</button>
+          <button class="law-btn" data-law="5">V · Ritmo</button>
+          <button class="law-btn" data-law="6">VI · Causa y Efecto</button>
+          <button class="law-btn" data-law="7">VII · Género</button>
+        </div>
+        <button class="get-reflection-btn" id="getReflection">✦ Generar Reflexión</button>
+        <div class="reflection-output" id="reflectionOutput"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AFFIRMATIONS ===== -->
+  <section class="affirmations-section" id="afirmaciones">
+    <div class="affirmations-inner">
+      <div class="reveal" style="text-align:center">
+        <div class="section-label">Práctica Diaria</div>
+        <h2 class="section-title">Afirmaciones Herméticas</h2>
+        <p class="section-text">Declara estas verdades en voz alta cada mañana. La repetición consciente reprograma el subconsciente.</p>
+      </div>
+      <div class="affirmations-grid reveal">
+        <div class="affirmation-card" data-law="I">
+          <div class="affirmation-law">I · Mentalismo</div>
+          <p class="affirmation-text">"Mi mente es la herramienta más poderosa que poseo. Lo que pienso con convicción, lo creo con certeza."</p>
+        </div>
+        <div class="affirmation-card" data-law="II">
+          <div class="affirmation-law">II · Correspondencia</div>
+          <p class="affirmation-text">"Todo cambio que deseo ver afuera, lo genero primero adentro. Soy el espejo que refleja mi mundo interior."</p>
+        </div>
+        <div class="affirmation-card" data-law="III">
+          <div class="affirmation-law">III · Vibración</div>
+          <p class="affirmation-text">"Elijo elevar mi vibración con gratitud, amor y paz. Atraigo hacia mí lo que vibra en mi misma frecuencia."</p>
+        </div>
+        <div class="affirmation-card" data-law="IV">
+          <div class="affirmation-law">IV · Polaridad</div>
+          <p class="affirmation-text">"Tengo el poder alquímico de transmutar cualquier emoción. Nada me tiene atrapado —siempre puedo moverme hacia el polo opuesto."</p>
+        </div>
+        <div class="affirmation-card" data-law="V">
+          <div class="affirmation-law">V · Ritmo</div>
+          <p class="affirmation-text">"Fluyo en armonía con los ciclos de la vida. En los altos doy gracias y actúo; en los bajos confío y persisto."</p>
+        </div>
+        <div class="affirmation-card" data-law="VI">
+          <div class="affirmation-law">VI · Causa y Efecto</div>
+          <p class="affirmation-text">"Soy el arquitecto de mi destino. Cada pensamiento, emoción y acción que siembro hoy construye mi mañana."</p>
+        </div>
+        <div class="affirmation-card" data-law="VII">
+          <div class="affirmation-law">VII · Género</div>
+          <p class="affirmation-text">"Unión perfecta de voluntad y receptividad. Dirijo con claridad y recibo con fe. Soy creación consciente."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-symbol">☿</span>
+    <p class="footer-text">
+      El Kybalión · Las 7 Leyes Herméticas<br>
+      Manual Interactivo del Cambio Mental<br>
+      "Como es adentro, es afuera"
+    </p>
+    <p class="footer-dev">Desarrollada por Vibras Positivas HM — Derechos de Autor Reservados</p>
+  </footer>
+
+</main>
+
+<!-- INSTALL BANNER -->
+<div class="install-banner" id="installBanner">
+  <p><span>⬇ Instalar App</span> — Accede al Kybalión sin conexión</p>
+  <button class="install-btn" id="installBtn">Instalar</button>
+  <button class="dismiss-btn" id="dismissBtn">✕</button>
+</div>
+
+<!-- BACK TO TOP -->
+<a href="#inicio" class="back-top" id="backTop">↑</a>
+
+<script>
+// ===== MENU =====
+const menuBtn = document.getElementById('menuBtn');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+menuBtn.addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('open');
+});
+overlay.addEventListener('click', () => {
+  sidebar.classList.remove('open');
+  overlay.classList.remove('open');
+});
+document.querySelectorAll('.sidebar a').forEach(a => {
+  a.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+  });
+});
+
+// ===== READING PROGRESS =====
+const progress = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const total = document.body.scrollHeight - window.innerHeight;
+  progress.style.width = (scrolled / total * 100) + '%';
+});
+
+// ===== BACK TO TOP =====
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', () => {
+  backTop.classList.toggle('visible', window.scrollY > 600);
+});
+
+// ===== REVEAL ON SCROLL =====
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(r => observer.observe(r));
+
+// ===== REFLECTION TOOL =====
+const reflections = {
+  1: [
+    "¿Qué creencia limitante sobre ti mismo estás convirtiendo en realidad sin darte cuenta? ¿Cómo sería tu vida si pensaras lo opuesto con la misma convicción?",
+    "Observa tu diálogo interno de hoy. ¿Qué te estás diciendo? ¿Esos pensamientos construyen o destruyen la vida que deseas?",
+    "Si tu realidad actual es el resultado de tus pensamientos pasados, ¿qué pensamientos nuevos necesitas plantar hoy para la vida futura que deseas?"
+  ],
+  2: [
+    "¿Qué situación de tu vida exterior te está perturbando? ¿Qué podría estarte reflejando de tu mundo interior?",
+    "¿Hay algún patrón que se repita en diferentes áreas de tu vida (trabajo, amor, dinero)? ¿Cuál podría ser la causa interior de ese patrón?",
+    "¿Cómo está el orden en tu espacio físico? ¿Qué dice eso sobre el estado de tu mente en este momento?"
+  ],
+  3: [
+    "En una escala del 1 al 10, ¿en qué nivel de vibración te encuentras hoy? ¿Qué está arrastrando tu frecuencia hacia abajo?",
+    "¿Qué personas, contenidos o hábitos elevan tu vibración? ¿Cuáles la bajan? ¿Cuáles necesitas ajustar?",
+    "Si la gratitud es una de las emociones más elevadas, ¿qué tienes para agradecer hoy que normalmente das por sentado?"
+  ],
+  4: [
+    "¿Qué emoción 'negativa' estás experimentando ahora? ¿Cuál sería su polo opuesto positivo? ¿Cómo puedes moverte en esa escala?",
+    "¿Hay algo que percibes como una debilidad tuya? ¿Cómo podría ser esa misma energía transmutada en una fortaleza?",
+    "¿Hay una situación que percibes solo como un problema? ¿Cuál es la oportunidad que existe en su polo opuesto?"
+  ],
+  5: [
+    "¿En qué ciclo te encuentras ahora? ¿Es un momento de expansión o de consolidación? ¿Estás actuando en consecuencia?",
+    "¿Hay un 'péndulo' en tu vida que te arrastra de extremo a extremo? ¿Cómo podrías mantener tu centro independientemente del balanceo?",
+    "¿Qué ciclo negativo del pasado ya terminó, aunque no lo hayas reconocido todavía? ¿Puedes soltar la mentalidad de ese ciclo y abrirte al nuevo?"
+  ],
+  6: [
+    "Piensa en un resultado que no te gusta en tu vida. Sin culpa, ¿qué causas (pensamientos, acciones, hábitos) lo generaron?",
+    "¿Estás reaccionando o respondiendo a la vida? Dame un ejemplo de hoy donde fuiste efecto. ¿Cómo habrías podido ser causa?",
+    "¿Qué semilla específica necesitas plantar hoy para cosechar el fruto que deseas en 90 días? ¿Lo harás?"
+  ],
+  7: [
+    "En tu proceso creativo, ¿tienes más desarrollado el principio activo (acción, voluntad) o el receptivo (intuición, paciencia)? ¿Cuál necesitas equilibrar?",
+    "¿Tienes clara la intención de lo que quieres crear en tu vida? ¿La sientes con emoción, o solo la piensas con la razón?",
+    "¿Hay algún proyecto o sueño que tienes pero al que no le estás dando tanto acción como receptividad (o viceversa)? ¿Cuál es el ajuste necesario?"
+  ]
+};
+
+let selectedLaw = null;
+document.querySelectorAll('.law-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.law-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedLaw = btn.dataset.law;
+  });
+});
+
+document.getElementById('getReflection').addEventListener('click', () => {
+  if (!selectedLaw) {
+    alert('Por favor selecciona una de las 7 Leyes.');
+    return;
+  }
+  const options = reflections[selectedLaw];
+  const chosen = options[Math.floor(Math.random() * options.length)];
+  const output = document.getElementById('reflectionOutput');
+  output.textContent = chosen;
+  output.classList.add('visible');
+});
+
+// ===== PWA INSTALL =====
+let deferredPrompt;
+const installBanner = document.getElementById('installBanner');
+const installBtn = document.getElementById('installBtn');
+const dismissBtn = document.getElementById('dismissBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBanner.classList.add('show');
+});
+
+installBtn.addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    installBanner.classList.remove('show');
+  }
+});
+
+dismissBtn.addEventListener('click', () => {
+  installBanner.classList.remove('show');
+});
+
+// ===== SERVICE WORKER =====
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
